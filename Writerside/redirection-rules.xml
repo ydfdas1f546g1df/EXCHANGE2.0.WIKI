@@ -10,4 +10,12 @@
         <description>Created after removal of "Test" from Instance Name</description>
         <accepts>Test.html</accepts>
     </rule>
+    <rule id="3fbe8ea4">
+        <description>Created after removal of "Empty MD Topic" from Instance Name</description>
+        <accepts>Empty-MD-Topic.html</accepts>
+    </rule>
+    <rule id="751581ab">
+        <description>Created after removal of "Empty MD Topic" from Instance Name</description>
+        <accepts>Empty-MD-Topic.html</accepts>
+    </rule>
 </rules>
