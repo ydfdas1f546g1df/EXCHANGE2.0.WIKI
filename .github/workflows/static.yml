@@ -27,10 +27,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GH_PAT }}
-          repository: ${{ env.GITHUB_REPOSITORY }}
-          ref: ${{ env.GITHUB_REF }}
+
 
       - name: Build Writerside docs using Docker
         uses: JetBrains/writerside-github-action@v4
