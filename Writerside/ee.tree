@@ -2,7 +2,7 @@
 <!DOCTYPE instance-profile
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 
-<instance-profile id="e"
+<instance-profile id="ee"
                   name="Exchange2.0-Wiki" start-page="Home.md">
 
     <toc-element topic="Home.md"/>
