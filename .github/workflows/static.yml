@@ -14,19 +14,26 @@ permissions:
 
 env:
   # Name of module and id separated by a slash
-  INSTANCE: Exchange2.0-Wiki/E
+  INSTANCE: EXCHANGE2.0.WIKI/ee
   # Replace XX with the ID of the instance in capital letters
-  ARTIFACT: webHelpE2-all.zip
+  ARTIFACT: webHelpEE2-all.zip
   # Docker image version
   DOCKER_VERSION: 232.10275
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Debuig
+        run: pwd
+      - name: Debug
+        run: ls -la
+      - name: Debug
+        run: find . -type d -or -type f
 
       - name: Build Writerside docs using Docker
         uses: JetBrains/writerside-github-action@v4
@@ -34,6 +41,7 @@ jobs:
           instance: ${{ env.INSTANCE }}
           artifact: ${{ env.ARTIFACT }}
           docker-version: ${{ env.DOCKER_VERSION }}
+          post: ls -la
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
@@ -47,7 +55,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    # Requires build job results
+    # Requires build job result
     needs: build
     runs-on: ubuntu-latest
 
@@ -71,3 +79,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+
