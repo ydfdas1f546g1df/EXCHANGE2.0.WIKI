@@ -1,45 +1,32 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Build documentation
 
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: ["master"]
-
-  # Allows you to run this workflow manually from the Actions tab
+    # To trigger the workflow once you push to the `main` branch
+    # Replace `main` with your branch’s name
+    branches: ["main"]
+  # Specify to run a workflow manually from the Actions tab on GitHub
   workflow_dispatch:
+
+permissions:
+  id-token: write
+  pages: write
 
 env:
   # Name of module and id separated by a slash
-  INSTANCE: Exchange2.0-Wiki/e
-  # Replace HI with the ID of the instance in capital letters
+  INSTANCE: Exchange2.0-Wiki/E
+  # Replace XX with the ID of the instance in capital letters
   ARTIFACT: webHelpE2-all.zip
   # Docker image version
   DOCKER_VERSION: 232.10275
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: Build Writerside docs using Docker
         uses: JetBrains/writerside-github-action@v4
@@ -48,21 +35,39 @@ jobs:
           artifact: ${{ env.ARTIFACT }}
           docker-version: ${{ env.DOCKER_VERSION }}
 
-      - name: Extract
-        uses: ihiroky/extract-action@v1
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
         with:
-          file_path: webHelpIN2-all.zip
-          extract_dir: build
+          name: docs
+          path: |
+            artifacts/${{ env.ARTIFACT }}
+          retention-days: 7
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    # Requires build job results
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: docs
+
+      - name: Unzip artifact
+        run: unzip -O UTF-8 -qq ${{ env.ARTIFACT }} -d dir
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v2
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v1
         with:
-          # Upload entire repository
-          path: './build'
+          path: dir
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v1
