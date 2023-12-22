@@ -28,6 +28,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Debuig
+        run: pwd
+      - name: Debug
+        run: ls -la
 
       - name: Build Writerside docs using Docker
         uses: JetBrains/writerside-github-action@v4
