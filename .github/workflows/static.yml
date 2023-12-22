@@ -18,7 +18,7 @@ env:
   # Replace XX with the ID of the instance in capital letters
   ARTIFACT: webHelpE2-all.zip
   # Docker image version
-  DOCKER_VERSION: latest
+  DOCKER_VERSION: 232.10275
 
 jobs:
   build:
