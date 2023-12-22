@@ -9,6 +9,14 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:
+  # Name of module and id separated by a slash
+  INSTANCE: EXCHANGE2.0.WIKI/e
+  # Replace HI with the ID of the instance in capital letters
+  ARTIFACT: webHelpIN2-all.zip
+  # Docker image version
+  DOCKER_VERSION: 232.10275
+
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
@@ -31,6 +39,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Build Writerside docs using Docker
+        uses: JetBrains/writerside-github-action@v4
+        with:
+          instance: ${{ env.INSTANCE }}
+          artifact: ${{ env.ARTIFACT }}
+          docker-version: ${{ env.DOCKER_VERSION }}
       - name: Extract
         uses: ihiroky/extract-action@v1
         with:
