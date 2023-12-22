@@ -6,6 +6,8 @@
                   name="Instance Name" start-page="Home.md">
 
     <toc-element topic="Home.md"/>
-    <toc-element topic="installation.md"/>
+    <toc-element topic="installation.md">
+        <toc-element topic="Test.md"/>
+    </toc-element>
     <toc-element topic="concept.md"/>
 </instance-profile>
