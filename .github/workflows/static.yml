@@ -32,6 +32,8 @@ jobs:
         run: pwd
       - name: Debug
         run: ls -la
+      - name: Debug
+        run: find . -type d -or -type f
 
       - name: Build Writerside docs using Docker
         uses: JetBrains/writerside-github-action@v4
