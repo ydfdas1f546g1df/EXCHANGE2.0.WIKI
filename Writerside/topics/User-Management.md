@@ -2,7 +2,7 @@
 
 ## general
 
-The users are based of the unix users
+The users are based of the unix users  
 This makes the howl process of user management very easy.  
 Because of:
 1. We don't need to create a new user management system.
