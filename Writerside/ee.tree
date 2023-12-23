@@ -9,5 +9,6 @@
     <toc-element topic="Installation.md"/>
     <toc-element topic="concept.md">
         <toc-element topic="User-Management.md"/>
+        <toc-element topic="File-Structure.md"/>
     </toc-element>
 </instance-profile>
