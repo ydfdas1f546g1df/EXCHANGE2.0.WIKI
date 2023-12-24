@@ -11,4 +11,10 @@
         <toc-element topic="User-Management.md"/>
         <toc-element topic="File-Structure.md"/>
     </toc-element>
+    <toc-element topic="Services.md">
+        <toc-element topic="MATS.md"/>
+        <toc-element topic="MATC.md"/>
+        <toc-element topic="MAAS.md"/>
+    </toc-element>
+    <toc-element topic="Test.md"/>
 </instance-profile>

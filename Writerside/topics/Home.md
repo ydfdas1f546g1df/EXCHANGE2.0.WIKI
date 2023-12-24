@@ -28,6 +28,8 @@ A alternative to MS Exchange.
 ![GitHub Contributors Image](https://avatars.githubusercontent.com/u/118827845?v=4){ width="50" border-effect="rounded"}  
 [M4rshe1](https://github.com/M4rshe1)
 
-![GitHub Contributors Image](https://avatars.githubusercontent.com/u/118828637?v=4){ width="50" border-effect="rounded"}  
+![GitHub Contributors Image](https://avatars.githubusercontent.com/u/118828637?v=4){ width="50" border-effect="
+rounded"}  
 [ScR420](https://github.com/ScR420)
+
 
