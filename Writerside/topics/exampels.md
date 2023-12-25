@@ -13,6 +13,19 @@ This is the about tab
 </tab>
 </tabs>
 
+```markdown
+<tabs>
+<tab title="Home">
+This is the home tab
+
+</tab>
+<tab title="About">
+This is the about tab
+
+</tab>
+</tabs>
+```
+
 ## Code
 
 ```python
@@ -41,6 +54,14 @@ int main() {
 
 {style="header-row"}
 
+```
+| Header 1 | Header 2 | Header 3 |
+|----------|----------|----------|
+| Cell 1   | Cell 2   | Cell 3   |
+{style="header-row"} or just nothing
+```
+
+
 ### Header column
 
 | Header 1 | Header 2 | Header 3 |
@@ -48,6 +69,13 @@ int main() {
 | Cell 1   | Cell 2   | Cell 3   |
 
 {style="header-column"}
+
+```
+| Header 1 | Header 2 | Header 3 |
+|----------|----------|----------|
+| Cell 1   | Cell 2   | Cell 3   |
+{style="header-column"}
+```
 
 ### Header row and column
 
@@ -57,6 +85,13 @@ int main() {
 
 {style="both"}
 
+```
+| Header 1 | Header 2 | Header 3 |
+|----------|----------|----------|
+| Cell 1   | Cell 2   | Cell 3   |
+{style="both"}
+```
+
 ### none
 
 | Header 1 | Header 2 | Header 3 |
@@ -64,6 +99,13 @@ int main() {
 | Cell 1   | Cell 2   | Cell 3   |
 
 {style="none"}
+
+```
+| Header 1 | Header 2 | Header 3 |
+|----------|----------|----------|
+| Cell 1   | Cell 2   | Cell 3   |
+{style="none"}
+```
 
 
 
@@ -113,6 +155,7 @@ Add the tooltip in the  /Writeside/cfg/glossary.xml file like this:
 
 ```markdown
 > This is a warning
+{style="warning"}
 ```
 
 ## Note
