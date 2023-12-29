@@ -7,6 +7,8 @@ This is the place where all the mails will be stored.
 
 ```
 Mailboxes
+
+/opt/ex2
 |- user_1
 |   |- .config
 |   |- Inbox
