@@ -2,7 +2,7 @@
 ## Home dir and storage
 
 ### Home dir
-The home dir of the user will be at `/var/{domain}/mailboxes/{username}`.
+The home dir of the user will be at `/opt/exchange/mailboxes/{username}`.
 This is the place where all the mails will be stored.
 
 ```
