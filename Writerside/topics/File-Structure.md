@@ -7,8 +7,6 @@ This is the place where all the mails will be stored.
 
 ```
 Mailboxes
-
-/opt/ex2
 |- user_1
 |   |- .config
 |   |- Inbox
@@ -65,5 +63,6 @@ These are:
 ### Outbox
 The outbox is the place where all the mails are stored that are not sent yet.
 The mails will be moved to the sent folder when they are sent.
+
 
 
